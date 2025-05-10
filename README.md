@@ -1,8 +1,8 @@
 # BigDataFinal Project
 
 ## Services:
-- Scraper (Selenium) — collects car listings from mycar.kz
-- API (FastAPI) — serves JSON data from collected CSV
+- Database postgres that will be loaded with csv data
+- API (FastAPI) — serves data from postgres server
 
 ## Run
 ```bash
@@ -11,3 +11,5 @@ docker-compose up --build
 
 ## API Endpoint
 http://localhost:8000/cars
+
+## Results can be checked in github actions also

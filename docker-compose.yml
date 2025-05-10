@@ -1,0 +1,24 @@
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      POSTGRES_DB: car_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_HOST: car-db
+    depends_on:
+      - car-db
+
+  car-db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: car_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./data/car_info.csv:/docker-entrypoint-initdb.d/car_info.csv
+    ports:
+      - "5433:5432"

@@ -24,4 +24,5 @@ jobs:
     - name: Wait and Test
       run: |
         sleep 10
+        docker ps
         curl http://localhost:8000/cars
